@@ -39,18 +39,22 @@
   let handleInsert = () => {
     let index;
 
-    todos.length !== 0
-      ? (index = todos[todos.length - 1][`id`] + 1)
-      : (index = 0);
+    if (todoValue) {
+      todos.length !== 0
+        ? (index = todos[todos.length - 1][`id`] + 1)
+        : (index = 0);
 
-    const newTodo = {
-      id: index,
-      content: todoValue,
-      done: false
-    };
+      const newTodo = {
+        id: index,
+        content: todoValue,
+        done: false
+      };
 
-    todos[todos.length] = newTodo;
-    todoValue = ``;
+      todos[todos.length] = newTodo;
+      todoValue = ``;
+    } else {
+      alert(`내용을 입력해 주세요.`);
+    }
   };
 
   let handleModify = (e, id) => {
@@ -60,11 +64,11 @@
     const modify = function() {
       element.removeAttribute(`contenteditable`);
       todos[index][`content`] = element.textContent;
+      element.removeEventListener(`blur`, modify, false);
     };
 
     element.setAttribute(`contenteditable`, true);
     element.focus();
-    element.removeEventListener(`blur`, modify, false);
     element.addEventListener(`blur`, modify, false);
   };
 
