@@ -1,7 +1,6 @@
 <script>
   export let logo;
   export let title;
-  export let children;
 </script>
 
 <style lang="scss">
