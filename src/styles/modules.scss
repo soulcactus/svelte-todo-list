@@ -1,0 +1,62 @@
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin bg-img($url, $size) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: $size;
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+@mixin space-between($wrap: wrap) {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: $wrap;
+}
+
+@mixin flex-start($wrap: wrap) {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: $wrap;
+}
+
+@mixin center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin align-center($position: absolute) {
+    position: $position;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin for-size($size) {
+    @if $size == mobile-portrait {
+        @media (max-width: 575.98px) {
+            @content;
+        }
+    } @else if $size == mobile-landscape {
+        @media (max-width: 767.98px) {
+            @content;
+        }
+    } @else if $size == tablet-portrait {
+        @media (max-width: 991.98px) {
+            @content;
+        }
+    } @else if $size == tablet-landscape {
+        @media (max-width: 1199.98px) {
+            @content;
+        }
+    }
+}
