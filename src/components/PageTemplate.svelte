@@ -4,29 +4,37 @@
 </script>
 
 <style lang="scss">
-  img {
-    display: block;
-    width: 12.8rem;
-    margin: 2rem auto 0;
+  @import "../styles/variables.scss";
+
+  h1 {
+    margin: 1.8rem 0 3.1rem;
+    text-align: center;
+    letter-spacing: 0.225rem;
+    font-size: 2.3rem;
+    font-weight: 500;
+    color: $svelte-theme-color;
+
+    img {
+      width: 12.8rem;
+      margin-right: 0.5rem;
+      margin-bottom: -1.1rem;
+    }
   }
 
   .page-template {
     width: 64rem;
     margin: 2rem auto;
+    border: 0.1rem solid $border-color;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 3rem 2.5rem 0;
     background: white;
-
-    h1 {
-      text-align: center;
-      font-size: 2.4rem;
-      font-weight: 500;
-    }
   }
 </style>
 
-<img src={logo} alt="SVELTE" />
+<h1>
+  <img src={logo} alt="SVELTE" />
+  {title}
+</h1>
 <div class="page-template">
-  <h1>{title}</h1>
   <slot />
 </div>

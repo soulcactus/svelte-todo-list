@@ -9,7 +9,7 @@
 
 <style lang="scss">
   ul {
-    padding: 0;
+    padding: 0.9rem 0 1.2rem;
   }
 </style>
 
