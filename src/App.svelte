@@ -4,7 +4,7 @@
   import TodoInput from "~/components/TodoInput.svelte";
   import TodoList from "~/components/TodoList.svelte";
 
-  let title = `Todo List`;
+  let title = `TODO LIST`;
 
   let todoValue = ``;
 
@@ -32,10 +32,6 @@
     todos[index][`done`] = !done;
   };
 
-  let handleKeyup = e => {
-    todoValue = e.target.value;
-  };
-
   let handleInsert = () => {
     let index;
 
@@ -54,6 +50,14 @@
       todoValue = ``;
     } else {
       alert(`내용을 입력해 주세요.`);
+    }
+  };
+
+  let handleKeyup = e => {
+    todoValue = e.target.value;
+
+    if (e.keyCode === 13) {
+      handleInsert();
     }
   };
 
