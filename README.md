@@ -1,9 +1,3 @@
-<div align="center">
-
-![](./src/images/svelte-todo-list.png)
-
-</div>
-
 # svelte-todo-list
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d898fdc9-6410-4e52-9497-4e81cb9d1ce0/deploy-status)](https://app.netlify.com/sites/svelte-todo-list-demo/deploys)
