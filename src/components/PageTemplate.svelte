@@ -21,7 +21,7 @@
     }
   }
 
-  .page-template {
+  div {
     width: 64rem;
     margin: 2rem auto;
     border: 0.1rem solid $border-color;
@@ -35,6 +35,6 @@
   <img src={logo} alt="SVELTE" />
   {title}
 </h1>
-<div class="page-template">
+<div>
   <slot />
 </div>
