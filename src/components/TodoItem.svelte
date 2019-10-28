@@ -111,13 +111,16 @@
     on:click={() => handleCheck(todo.id, todo.done)}
     class="chk-form" />
   <label for={`todoCheck${todo.id}`} />
-  {#if todo.done}
+  <!-- {#if todo.done}
     <span class="done" on:dblclick={e => handleModify(e, todo.id)}>
       {todo.content}
     </span>
   {:else}
     <span on:dblclick={e => handleModify(e, todo.id)}>{todo.content}</span>
-  {/if}
+  {/if} -->
+  <span class:done={todo.done} on:dblclick={e => handleModify(e, todo.id)}>
+    {todo.content}
+  </span>
   <button type="button" on:click={e => handleRemove(todo.id)}>
     <img src={icon} alt="remove todo item" />
   </button>
