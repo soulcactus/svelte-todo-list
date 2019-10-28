@@ -121,7 +121,7 @@
   <span class:done={todo.done} on:dblclick={e => handleModify(e, todo.id)}>
     {todo.content}
   </span>
-  <button type="button" on:click={e => handleRemove(todo.id)}>
+  <button type="button" on:click={() => handleRemove(todo.id)}>
     <img src={icon} alt="remove todo item" />
   </button>
 </li>
