@@ -5,7 +5,6 @@
   import TodoList from "~/components/TodoList.svelte";
 
   let title = `TODO LIST`;
-
   let todoValue = ``;
 
   let todos = [
