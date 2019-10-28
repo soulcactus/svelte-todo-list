@@ -25,6 +25,8 @@
     }
   ];
 
+  let todoId = todos[todos.length - 1][`id`];
+
   let handleCheck = (id, done) => {
     const index = todos.findIndex(todo => todo.id === id);
 
@@ -32,15 +34,9 @@
   };
 
   let handleInsert = () => {
-    let index;
-
     if (todoValue) {
-      todos.length !== 0
-        ? (index = todos[todos.length - 1][`id`] + 1)
-        : (index = 0);
-
       const newTodo = {
-        id: index,
+        id: ++todoId,
         content: todoValue,
         done: false
       };
