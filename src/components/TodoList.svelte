@@ -14,7 +14,7 @@
 </style>
 
 <ul>
-  {#each todos as todo, index}
+  {#each todos as todo}
     <TodoItem {todo} {handleCheck} {handleRemove} {handleModify} />
   {/each}
 </ul>
