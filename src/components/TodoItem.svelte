@@ -107,9 +107,9 @@
   <input
     type="checkbox"
     id={`todoCheck${todo.id}`}
-    checked={todo.done}
+    class="chk-form"
     on:click={() => handleCheck(todo.id, todo.done)}
-    class="chk-form" />
+    checked={todo.done} />
   <label for={`todoCheck${todo.id}`} />
   <!-- {#if todo.done}
     <span class="done" on:dblclick={e => handleModify(e, todo.id)}>
