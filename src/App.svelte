@@ -89,5 +89,5 @@
 
 <PageTemplate {logo} {title}>
   <TodoInput {todoValue} {handleKeyup} {handleInsert} />
-  <TodoList {todos} {handleCheck} {handleRemove} {handleModify} />
+  <TodoList {todos} {handleCheck} {handleModify} {handleRemove} />
 </PageTemplate>
