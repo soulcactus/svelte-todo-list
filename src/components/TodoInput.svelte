@@ -1,6 +1,6 @@
 <script>
-  export let todoValue;
-  export let handleKeyup;
+  import { todoValue } from "~/store.js";
+
   export let handleInsert;
 </script>
 
@@ -44,6 +44,6 @@
 <input
   type="text"
   placeholder="새로운 일정을 입력해 주세요"
-  bind:value={todoValue}
-  on:keyup={e => handleKeyup(e)} />
+  bind:value={$todoValue}
+  on:keyup={e => todoValue.update(e.target.value)} />
 <button type="button" on:click={handleInsert}>추가</button>

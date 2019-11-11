@@ -5,7 +5,7 @@
   import TodoList from "~/components/TodoList.svelte";
 
   let title = `TODO LIST`;
-  let todoValue = ``;
+  // let todoValue = ``;
 
   let todos = [
     {
@@ -48,13 +48,13 @@
     }
   };
 
-  let handleKeyup = e => {
-    todoValue = e.target.value;
+  // let handleKeyup = e => {
+  //   todoValue = e.target.value;
 
-    if (e.keyCode === 13) {
-      handleInsert();
-    }
-  };
+  //   if (e.keyCode === 13) {
+  //     handleInsert();
+  //   }
+  // };
 
   let handleModify = (e, id) => {
     const element = e.target;
@@ -88,6 +88,6 @@
 </style>
 
 <PageTemplate {logo} {title}>
-  <TodoInput {todoValue} {handleKeyup} {handleInsert} />
+  <TodoInput {handleInsert} />
   <TodoList {todos} {handleCheck} {handleModify} {handleRemove} />
 </PageTemplate>
