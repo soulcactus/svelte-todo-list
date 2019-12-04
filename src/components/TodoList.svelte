@@ -1,10 +1,6 @@
 <script>
   import TodoItem from "~/components/TodoItem.svelte";
-
-  export let todos;
-  export let handleCheck;
-  export let handleRemove;
-  export let handleModify;
+  import { todos } from "~/store.js";
 </script>
 
 <style lang="scss">
@@ -14,7 +10,7 @@
 </style>
 
 <ul>
-  {#each todos as todo}
-    <TodoItem {todo} {handleCheck} {handleModify} {handleRemove} />
+  {#each $todos as todo}
+    <TodoItem {todo} />
   {/each}
 </ul>

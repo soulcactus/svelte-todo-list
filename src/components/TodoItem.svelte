@@ -1,10 +1,22 @@
 <script>
   import icon from "~/images/remove-icon.svg";
+  import { todos } from "~/store.js";
 
   export let todo;
-  export let handleCheck;
-  export let handleRemove;
-  export let handleModify;
+
+  const handleModify = (id, element) => {
+    const index = $todos.findIndex(todo => todo[`id`] === id);
+
+    const modify = function() {
+      element.removeAttribute(`contenteditable`);
+      todos.modify(id, element.textContent);
+      element.removeEventListener(`blur`, modify, false);
+    };
+
+    element.setAttribute(`contenteditable`, true);
+    element.focus();
+    element.addEventListener(`blur`, modify, false);
+  };
 </script>
 
 <style lang="scss">
@@ -106,22 +118,17 @@
 <li>
   <input
     type="checkbox"
-    id={`todoCheck${todo.id}`}
+    id={`todoCheck${todo[`id`]}`}
     class="chk-form"
-    on:click={() => handleCheck(todo.id, todo.done)}
-    checked={todo.done} />
-  <label for={`todoCheck${todo.id}`} />
-  <!-- {#if todo.done}
-    <span class="done" on:dblclick={e => handleModify(e, todo.id)}>
-      {todo.content}
-    </span>
-  {:else}
-    <span on:dblclick={e => handleModify(e, todo.id)}>{todo.content}</span>
-  {/if} -->
-  <span class:done={todo.done} on:dblclick={e => handleModify(e, todo.id)}>
-    {todo.content}
+    on:click={() => todos.check(todo[`id`])}
+    checked={todo[`done`]} />
+  <label for={`todoCheck${todo[`id`]}`} />
+  <span
+    class:done={todo[`done`]}
+    on:dblclick={e => handleModify(todo[`id`], e.target)}>
+    {todo[`content`]}
   </span>
-  <button type="button" on:click={() => handleRemove(todo.id)}>
+  <button type="button" on:click={() => todos.remove(todo[`id`])}>
     <img src={icon} alt="remove todo item" />
   </button>
 </li>

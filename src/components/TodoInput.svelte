@@ -1,7 +1,22 @@
 <script>
-  import { todoValue } from "~/store.js";
+  import { todos, todoValue } from "~/store.js";
 
-  export let handleInsert;
+  const handleInsert = () => {
+    if ($todoValue) {
+      todos.insert($todoValue);
+      todoValue.keyup(``);
+    } else {
+      alert(`내용을 입력해 주세요.`);
+    }
+  };
+
+  const handleKeyup = e => {
+    todoValue.keyup(e.target.value);
+
+    if (e.keyCode === 13) {
+      handleInsert();
+    }
+  };
 </script>
 
 <style lang="scss">
@@ -44,6 +59,6 @@
 <input
   type="text"
   placeholder="새로운 일정을 입력해 주세요"
-  bind:value={$todoValue}
-  on:keyup={e => todoValue.update(e.target.value)} />
+  value={$todoValue}
+  on:keyup={handleKeyup} />
 <button type="button" on:click={handleInsert}>추가</button>
