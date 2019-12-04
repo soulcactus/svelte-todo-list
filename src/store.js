@@ -51,8 +51,6 @@ function setTodo() {
       update(list => {
         const index = list.findIndex(todo => todo[`id`] === id);
 
-        console.log(id, index);
-
         list[index][`content`] = text;
 
         return list;
