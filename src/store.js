@@ -25,11 +25,12 @@ function setTodo() {
     subscribe,
     insert: value =>
       update(list => {
+        const newList = [...list];
         let todoId;
 
-        list.length === 0
+        newList.length === 0
           ? (todoId = -1)
-          : (todoId = list[list.length - 1][`id`]);
+          : (todoId = newList[newList.length - 1][`id`]);
 
         const newTodo = {
           id: ++todoId,
@@ -37,31 +38,34 @@ function setTodo() {
           done: false
         };
 
-        return [...list, newTodo];
+        return [...newList, newTodo];
       }),
     check: id =>
       update(list => {
-        const index = list.findIndex(todo => todo[`id`] === id);
+        const newList = [...list];
+        const index = newList.findIndex(todo => todo[`id`] === id);
 
-        list[index][`done`] = !list[index][`done`];
+        newList[index][`done`] = !newList[index][`done`];
 
-        return list;
+        return newList;
       }),
     modify: (id, text) =>
       update(list => {
-        const index = list.findIndex(todo => todo[`id`] === id);
+        const newList = [...list];
+        const index = newList.findIndex(todo => todo[`id`] === id);
 
-        list[index][`content`] = text;
+        newList[index][`content`] = text;
 
-        return list;
+        return newList;
       }),
     remove: id =>
       update(list => {
-        const index = list.findIndex(todo => todo[`id`] === id);
+        const newList = [...list];
+        const index = newList.findIndex(todo => todo[`id`] === id);
 
         const newTodos = [
-          ...list.slice(0, index),
-          ...list.slice(index + 1, list.length)
+          ...newList.slice(0, index),
+          ...newList.slice(index + 1, newList.length)
         ];
 
         return newTodos;
