@@ -18,6 +18,8 @@ const todoList = [
     },
 ];
 
+let todoId = todoList[todoList.length - 1]['id'];
+
 function setTodo() {
     const { subscribe, update } = writable(todoList);
 
@@ -26,11 +28,6 @@ function setTodo() {
         insert: (value) =>
             update((list) => {
                 const newList = [...list];
-                let todoId;
-
-                newList.length === 0
-                    ? (todoId = -1)
-                    : (todoId = newList[newList.length - 1]['id']);
 
                 const newTodo = {
                     id: ++todoId,
