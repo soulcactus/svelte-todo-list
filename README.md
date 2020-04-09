@@ -23,11 +23,15 @@
 
 ### 1. Clone a repository or download ZIP
 
+#### Clone
+
 ```bash
 $ git clone https://github.com/soulcactus/svelte-todo-list.git
 ```
 
-[![](./src/images/github-button.png)](https://github.com/soulcactus/svelte-todo-list/archive/master.zip)
+#### Download
+
+[![](./src/images/download.png)](https://github.com/soulcactus/svelte-todo-list/archive/master.zip)
 
 ### 2. Install packages and start
 
