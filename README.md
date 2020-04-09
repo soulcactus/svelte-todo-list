@@ -23,11 +23,15 @@
 
 ### 1. Clone a repository or download ZIP
 
-[![](./src/images/github-button.png)](https://github.com/soulcactus/svelte-todo-list)
+```bash
+$ git clone https://github.com/soulcactus/svelte-todo-list.git
+```
+
+[![](./src/images/github-button.png)](https://github.com/soulcactus/svelte-todo-list/archive/master.zip)
 
 ### 2. Install packages and start
 
-```sh
+```bash
 cd svelte-todo-list
 $ npm install
 $ npm run dev
